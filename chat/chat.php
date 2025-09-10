@@ -18,7 +18,10 @@ if (!$currentUser) {
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#1890ff">
     <title>چت آنلاین - <?php echo $currentUser['username']; ?></title>
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +38,9 @@ if (!$currentUser) {
     <!-- Custom CSS -->
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/animations.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="assets/css/advanced-ui.css" rel="stylesheet">
+    <link href="assets/css/social-features.css" rel="stylesheet">
     
     <style>
         * {
@@ -1139,14 +1145,21 @@ if (!$currentUser) {
                     <div class="chat-input-area" id="chat-input" style="display: none;">
                         <form id="message-form" class="input-container">
                             <input type="text" class="message-input" id="message-input" placeholder="پیام خود را بنویسید...">
-                            <button type="button" class="btn-attach" id="attach-file">
-                            <i class="fas fa-paperclip"></i>
-                        </button>
-                            <button type="submit" class="btn-send" id="send-btn">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
+                            <button type="button" class="btn-attach" id="emoji-btn" title="اموجی">
+                                <i class="fas fa-smile"></i>
+                            </button>
+                            <button type="button" class="btn-attach" id="voice-btn" title="پیام صوتی">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button type="button" class="btn-attach" id="attach-file" title="فایل">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <button type="submit" class="btn-send" id="send-btn" title="ارسال">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        <input type="file" id="file-input" style="display: none;" multiple accept="image/*,video/*,audio/*,.pdf,.doc,.docx">
+                    </div>
             </div>
         </div>
     </div>
@@ -1277,6 +1290,9 @@ if (!$currentUser) {
     <script src="assets/js/animations.js"></script>
     <script src="assets/js/toast.js"></script>
     <script src="assets/js/contacts.js"></script>
+    <script src="assets/js/mobile.js"></script>
+    <script src="assets/js/advanced-features.js"></script>
+    <script src="assets/js/social-features.js"></script>
     
     <script>
         // Initialize Contact Manager
